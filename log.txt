@@ -1,0 +1,80 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ------------------------< org.com:customer-api >------------------------
+[INFO] Building customer-api 0.0.1
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ customer-api ---
+[INFO] Deleting E:\COURS_DIVERS\QUARKUS\customer-api-0.0.1\target
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ customer-api ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 2 resources
+[INFO] 
+[INFO] --- quarkus-maven-plugin:2.6.1.Final:generate-code (default) @ customer-api ---
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.1:compile (default-compile) @ customer-api ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 8 source files to E:\COURS_DIVERS\QUARKUS\customer-api-0.0.1\target\classes
+[INFO] 
+[INFO] --- quarkus-maven-plugin:2.6.1.Final:generate-code-tests (default) @ customer-api ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ customer-api ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory E:\COURS_DIVERS\QUARKUS\customer-api-0.0.1\src\test\resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.1:testCompile (default-testCompile) @ customer-api ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 2 source files to E:\COURS_DIVERS\QUARKUS\customer-api-0.0.1\target\test-classes
+[INFO] 
+[INFO] --- maven-surefire-plugin:3.0.0-M5:test (default-test) @ customer-api ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ customer-api ---
+[INFO] Building jar: E:\COURS_DIVERS\QUARKUS\customer-api-0.0.1\target\customer-api-0.0.1.jar
+[INFO] 
+[INFO] --- quarkus-maven-plugin:2.6.1.Final:build (default) @ customer-api ---
+[INFO] [org.jboss.threads] JBoss Threads version 3.4.2.Final
+[INFO] [org.hibernate.Version] HHH000412: Hibernate ORM core version 5.6.1.Final
+[INFO] [io.quarkus.arc.processor.BeanProcessor] Found unrecommended usage of private members (use package-private instead) in application beans:
+	- @Inject field org.com.customer.web.CustomerResource#customerService,
+	- @Inject field org.com.customer.services.CustomerService#customerMapper,
+	- @Inject field org.com.customer.services.CustomerService#customerRepository
+[INFO] [io.quarkus.deployment.QuarkusAugmentor] Quarkus augmentation completed in 3727ms
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ customer-api ---
+[INFO] Installing E:\COURS_DIVERS\QUARKUS\customer-api-0.0.1\target\customer-api-0.0.1.jar to E:\TOOLS\repo\org\com\customer-api\0.0.1\customer-api-0.0.1.jar
+[INFO] Installing E:\COURS_DIVERS\QUARKUS\customer-api-0.0.1\pom.xml to E:\TOOLS\repo\org\com\customer-api\0.0.1\customer-api-0.0.1.pom
+[INFO] 
+[INFO] --- quarkus-maven-plugin:2.6.1.Final:dev (default-cli) @ customer-api ---
+[INFO] Invoking org.apache.maven.plugins:maven-resources-plugin:2.6:testResources) @ customer-api
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory E:\COURS_DIVERS\QUARKUS\customer-api-0.0.1\src\test\resources
+[INFO] Invoking io.quarkus.platform:quarkus-maven-plugin:2.6.1.Final:generate-code-tests) @ customer-api
+[INFO] Invoking org.apache.maven.plugins:maven-compiler-plugin:3.8.1:testCompile) @ customer-api
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 2 source files to E:\COURS_DIVERS\QUARKUS\customer-api-0.0.1\target\test-classes
+Listening for transport dt_socket at address: 5005
+Press [[94mh[39m] for more options>
+[94mTests paused[39m
+Press [[94mr[39m] to resume testing, [[94mh[39m] for more options>
+Press [[94mr[39m] to resume testing, [[94mo[39m] Toggle test output, [[94mh[39m] for more options>
+[38;5;145m2023-05-21 18:48:27,053[39m[38;5;188m [39m[38;5;107mINFO [39m[38;5;188m [[39m[38;5;69mio.quarkus.arc.processor.BeanProcessor[39m[38;5;188m] ([39m[38;5;71mbuild-41[39m[38;5;188m) [39m[38;5;151m[39mFound unrecommended usage of private members (use package-private instead) in application beans:
+[38;5;188m	- @Inject field org.com.customer.web.CustomerResource#customerService,
+	- @Inject field org.com.customer.services.CustomerService#customerMapper,
+	- @Inject field org.com.customer.services.CustomerService#customerRepository[39m[39m[38;5;203m[39m[38;5;227m
+[39m__  ____  __  _____   ___  __ ____  ______ 
+ --/ __ \/ / / / _ | / _ \/ //_/ / / / __/ 
+ -/ /_/ / /_/ / __ |/ , _/ ,< / /_/ /\ \   
+--\___\_\____/_/ |_/_/|_/_/|_|\____/___/   
+[38;5;145m2023-05-21 18:48:29,487[39m[38;5;188m [39m[38;5;107mINFO [39m[38;5;188m [[39m[38;5;69mio.quarkus[39m[38;5;188m] ([39m[38;5;71mQuarkus Main Thread[39m[38;5;188m) [39m[38;5;151m[39m[38;5;188mcustomer-api[39m [38;5;188m0.0.1[39m [38;5;188mon JVM[39m (powered by Quarkus [38;5;188m2.6.1.Final[39m) started in [38;5;188m4.281[39ms. [38;5;188mListening on: http://localhost:8585[39m[39m[38;5;203m[39m[38;5;227m
+[39m[38;5;145m2023-05-21 18:48:29,489[39m[38;5;188m [39m[38;5;107mINFO [39m[38;5;188m [[39m[38;5;69mio.quarkus[39m[38;5;188m] ([39m[38;5;71mQuarkus Main Thread[39m[38;5;188m) [39m[38;5;151m[39mProfile [38;5;188mdev[39m activated. [38;5;188mLive Coding activated.[39m[39m[38;5;203m[39m[38;5;227m
+[39m[38;5;145m2023-05-21 18:48:29,489[39m[38;5;188m [39m[38;5;107mINFO [39m[38;5;188m [[39m[38;5;69mio.quarkus[39m[38;5;188m] ([39m[38;5;71mQuarkus Main Thread[39m[38;5;188m) [39m[38;5;151m[39mInstalled features: [[38;5;188magroal, cdi, config-yaml, flyway, hibernate-orm, hibernate-orm-panache, hibernate-validator, jdbc-mysql, micrometer, narayana-jta, resteasy-reactive, resteasy-reactive-jackson, smallrye-context-propagation, smallrye-health, smallrye-openapi, swagger-ui, vertx[39m][39m[38;5;203m[39m[38;5;227m
+[39m[38;5;145m2023-05-21 18:55:21,548[39m[38;5;188m [39m[38;5;107mINFO [39m[38;5;188m [[39m[38;5;69mio.quarkus[39m[38;5;188m] ([39m[38;5;71mShutdown thread[39m[38;5;188m) [39m[38;5;151m[39m[38;5;188mcustomer-api[39m[38;5;188m[39m stopped in [38;5;188m0.043[39ms[39m[38;5;203m[39m[38;5;227m
+[39mPress [[94mh[39m] for more options>
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  07:16 min
+[INFO] Finished at: 2023-05-21T18:55:22+02:00
+[INFO] ------------------------------------------------------------------------
