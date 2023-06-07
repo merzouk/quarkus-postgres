@@ -36,6 +36,8 @@ nb-configuration.xml
 *.rej
 
 use_api
+data.json
+
 
 # Local environment
 .env
