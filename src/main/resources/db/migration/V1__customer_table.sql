@@ -1,3 +1,5 @@
+--- Mysql 
+
 CREATE DATABASE manage;
 
 CREATE TABLE  manage.customer
@@ -20,9 +22,9 @@ insert into  manage.customer
     email  ,
     phone 
 ) values 
-(1, 'Ryan',    'Louis',     'MENHOUR', 'Mr',  'ryan@gmail.com',    '0112233445'),
-(2, 'Assia',   'Charlotte', 'MENHOUR', 'Mme', 'assia@gmail.com',   '0112233446'),
-(3, 'Merzouk', 'Gaspard',   'MENHOUR', 'Mr',  'merzouk@gmail.com', '0112233447');
+(1, 'Ryacho',    'Louis',     'MEN', 'Mr',  'ryacho@gmail.com',    '0112233445'),
+(2, 'Akka',   'Charlotte', 'MEN', 'Mme', 'akka@gmail.com',   '0112233446'),
+(3, 'Mrzk', 'Gaspard',   'MEN', 'Mr',  'mrzk@gmail.com', '0112233447');
 
 -------------------------------------------------------------------------------------------
 
@@ -59,8 +61,8 @@ insert into  customer
     email  ,
     phone 
 ) values 
-(1, 'Ryan',    'Louis',     'MENHOUR', 'Mr',  'ryan@gmail.com',    '0112233445'),
-(2, 'Assia',   'Charlotte', 'MENHOUR', 'Mme', 'assia@gmail.com',   '0112233446'),
-(3, 'Merzouk', 'Gaspard',   'MENHOUR', 'Mr',  'merzouk@gmail.com', '0112233447');
+(1, 'Ryacho',    'Louis',     'MEN', 'Mr',  'ryacho@gmail.com',    '0112233445'),
+(2, 'Akka',   'Charlotte', 'MEN', 'Mme', 'akka@gmail.com',   '0112233446'),
+(3, 'Mrzk', 'Gaspard',   'MEN', 'Mr',  'mrzk@gmail.com', '0112233447');
 
 
