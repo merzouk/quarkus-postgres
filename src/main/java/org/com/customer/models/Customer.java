@@ -8,7 +8,6 @@ import java.util.Objects;
 
 
 import javax.validation.constraints.Email;
-import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
 /**
  * 
@@ -24,24 +23,24 @@ public class Customer implements Serializable
    
    private static final long serialVersionUID = 6490814933221125505L;
 
-   @NotEmpty
+   //@NotEmpty
    private Integer customerId;
    
    @NotEmpty
-   @Min(value = 4)
+   //@Min(value = 4)
    private String  firstName;
    
    private String  middleName;
    
    @NotEmpty
-   @Min(value = 4)
+   //@Min(value = 4)
    private String  lastName;
    
    private String  suffix;
    
    @Email
    @NotEmpty
-   @Min(value = 10)
+   //@Min(value = 10)
    private String  email;
    
    @NotEmpty

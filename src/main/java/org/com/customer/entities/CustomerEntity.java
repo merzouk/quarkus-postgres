@@ -10,10 +10,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.Email;
-import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
 
 import lombok.Data;
+
 /**
  * 
  * A Renseigner.
@@ -30,13 +30,12 @@ public class CustomerEntity implements Serializable
    private static final long serialVersionUID = -2743626572947459832L;
 
    @Id
-   @GeneratedValue(strategy = GenerationType.IDENTITY)
    @Column(name = "customer_id", unique = true)
    private Integer customerId;
    
    @Column(name = "first_name", length = 60, nullable = false)
    @NotEmpty
-   @Min(value = 4)
+   //@Min(value = 4)
    private String  firstName;
    
    @Column(name = "middle_name", length = 60)
@@ -44,7 +43,7 @@ public class CustomerEntity implements Serializable
    
    @Column(name = "last_name", length = 60, nullable = false)
    @NotEmpty
-   @Min(value = 4)
+   //@Min(value = 4)
    private String  lastName;
    
    @Column(name = "suffix", length = 6)
@@ -52,11 +51,11 @@ public class CustomerEntity implements Serializable
    
    @Column(name = "email", length = 60, unique = true,  nullable = false)
    @Email
-   @Min(value = 10)
+   //@Min(value = 10)
    private String  email;
    
    @Column(name = "phone", length = 15, unique = true,  nullable = false)
    @NotEmpty
-   @Min(value = 10)
+   //@Min(value = 10)
    private String  phone;
 }
