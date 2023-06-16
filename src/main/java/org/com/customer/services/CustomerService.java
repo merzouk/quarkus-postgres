@@ -14,15 +14,12 @@ import org.com.customer.entities.CustomerEntity;
 import org.com.customer.exceptions.CustomerException;
 import org.com.customer.models.Customer;
 import org.com.customer.tools.CustomerMapper;
-import io.quarkus.hibernate.orm.panache.PanacheQuery;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import lombok.AllArgsConstructor;
 import lombok.NonNull;
 import lombok.extern.slf4j.Slf4j;
-
-import static java.util.Comparator.*;
 
 /**
  *
@@ -50,7 +47,7 @@ public class CustomerService
      */
     public List<Customer> findAll()
     {
-        return this.customerMapper.toDomainList( customerRepository.findAll().list() );
+        return this.customerMapper.toListModel( customerRepository.findAll().list() );
     }
 
     /**
@@ -64,7 +61,7 @@ public class CustomerService
         {
             throw new CustomerException( "Find Customer by customerId not valid : "+customerId );
         }
-        return customerRepository.findByIdOptional( customerId ).map( customerMapper::toDomain );
+        return customerRepository.findByIdOptional( customerId ).map( customerMapper::toModel);
     }
 
     /**
@@ -93,7 +90,7 @@ public class CustomerService
         {
             throw new CustomerException( "Find Customer List by firstname not valid : "+firstname );
         }
-        return this.customerMapper.toDomainList( customerRepository.list( "first_name", firstname ) );
+        return this.customerMapper.toListModel( customerRepository.list( "first_name", firstname ) );
     }
 
     /**
@@ -112,7 +109,7 @@ public class CustomerService
         Map<String, Object> params = new HashMap<String, Object>();
         params.put( "first_name", firstname );
         params.put( "last_name",  lastname );
-        return this.customerMapper.toDomainList( customerRepository.list( query, params ) );
+        return this.customerMapper.toListModel( customerRepository.list( query, params ) );
     }
 
     /**
@@ -126,7 +123,7 @@ public class CustomerService
         {
             throw new CustomerException( "Find Customer List by lastname not valid : "+lastname );
         }
-        return this.customerMapper.toDomainList( customerRepository.list( "last_name", lastname ) );
+        return this.customerMapper.toListModel( customerRepository.list( "last_name", lastname ) );
     }
 
     /**
@@ -140,7 +137,7 @@ public class CustomerService
         {
             throw new CustomerException( "Find Customer by email not valid : "+email );
         }
-        return customerRepository.find( "email", email ).firstResultOptional().map( customerMapper::toDomain );
+        return customerRepository.find( "email", email ).firstResultOptional().map( customerMapper::toModel);
     }
 
     @Transactional(rollbackOn = Exception.class)
@@ -154,7 +151,7 @@ public class CustomerService
         CustomerEntity entity = customerMapper.toEntity( customer );
         entity.setCustomerId(getMaxCustomerId() + 1);
         customerRepository.persist( entity );
-        customerMapper.updateDomainFromEntity( entity, customer );
+        customerMapper.updateModelFromEntity( entity, customer );
     }
 
     @Transactional(rollbackOn = Exception.class)
@@ -167,9 +164,9 @@ public class CustomerService
         }
         CustomerEntity entity = customerRepository.findByIdOptional( customer.getCustomerId() )
                 .orElseThrow( () -> new CustomerException( "No Customer found for customerId[%s]", customer.getCustomerId() ) );
-        customerMapper.updateEntityFromDomain( customer, entity );
+        customerMapper.updateEntityFromModel( customer, entity );
         customerRepository.persist( entity );
-        customerMapper.updateDomainFromEntity( entity, customer );
+        customerMapper.updateModelFromEntity( entity, customer );
     }
 
     private Integer getMaxCustomerId()

@@ -21,14 +21,14 @@ import java.util.List;
 @SuppressWarnings("all")
 public interface CustomerMapper
 {
-   List<Customer> toDomainList( List<CustomerEntity> entities );
+   List<Customer> toListModel(List<CustomerEntity> entities );
    
-   Customer toDomain( CustomerEntity entity);
+   Customer toModel(CustomerEntity entity);
    
-   @InheritInverseConfiguration(name = "toDomain")
+   @InheritInverseConfiguration(name = "toModel")
    CustomerEntity toEntity( Customer domain );
    
-   void updateEntityFromDomain( Customer domain, @MappingTarget CustomerEntity entity );
+   void updateEntityFromModel(Customer domain, @MappingTarget CustomerEntity entity );
    
-   void updateDomainFromEntity( CustomerEntity entity, @MappingTarget Customer domain );
+   void updateModelFromEntity(CustomerEntity entity, @MappingTarget Customer domain );
 }
