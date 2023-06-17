@@ -14,6 +14,7 @@ import org.com.customer.entities.CustomerEntity;
 import org.com.customer.exceptions.CustomerException;
 import org.com.customer.models.Customer;
 import org.com.customer.tools.CustomerMapper;
+import org.com.customer.tools.Tools;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -59,6 +60,7 @@ public class CustomerService
     {
         if( Objects.isNull( customerId ) )
         {
+            logger.error("Find Customer by customerId not valid : "+customerId);
             throw new CustomerException( "Find Customer by customerId not valid : "+customerId );
         }
         return customerRepository.findByIdOptional( customerId ).map( customerMapper::toModel);
@@ -74,6 +76,7 @@ public class CustomerService
     {
         if( Objects.isNull( customerId ) )
         {
+            logger.error("Delete Customer by customerId not valid : "+customerId);
             throw new CustomerException( "Delete Customer by customerId not valid : "+customerId );
         }
         return customerRepository.deleteById( customerId );
@@ -88,6 +91,7 @@ public class CustomerService
     {
         if( Objects.isNull( firstname ) )
         {
+            logger.error("Find Customer List by firstname not valid : "+firstname);
             throw new CustomerException( "Find Customer List by firstname not valid : "+firstname );
         }
         return this.customerMapper.toListModel( customerRepository.list( "first_name", firstname ) );
@@ -103,6 +107,7 @@ public class CustomerService
     {
         if( Objects.isNull( firstname ) || Objects.isNull( lastname ))
         {
+            logger.error("Find Customer List by firstname: "+firstname +"  And lastname: "+lastname+" not valid");
             throw new CustomerException( "Find Customer List by firstname: "+firstname +"  And lastname: "+lastname+" not valid");
         }
         String query = "FROM Customer c WHERE c.firstName =: first_name and c.lastName =: last_name";
@@ -121,6 +126,7 @@ public class CustomerService
     {
         if( Objects.isNull( lastname ) )
         {
+            logger.error("Find Customer List by lastname not valid : "+lastname);
             throw new CustomerException( "Find Customer List by lastname not valid : "+lastname );
         }
         return this.customerMapper.toListModel( customerRepository.list( "last_name", lastname ) );
@@ -135,7 +141,13 @@ public class CustomerService
     {
         if( Objects.isNull( email ) )
         {
+            logger.error("Find Customer by email not valid : "+email);
             throw new CustomerException( "Find Customer by email not valid : "+email );
+        }
+        if(!Tools.validateEmail(email))
+        {
+            logger.error("email is not valid : "+email);
+            throw new CustomerException( "email is not valid : "+email );
         }
         return customerRepository.find( "email", email ).firstResultOptional().map( customerMapper::toModel);
     }
@@ -145,7 +157,13 @@ public class CustomerService
     {
         if( Objects.isNull( customer ) )
         {
-            throw new CustomerException( "Save new Customer not valid" );
+            logger.error("Saving new Customer not valid ");
+            throw new CustomerException( "Saving new Customer not valid" );
+        }
+        if(!Tools.validateEmail(customer.getEmail()))
+        {
+            logger.error("email is not valid : "+customer.getEmail());
+            throw new CustomerException( "email is not valid : "+customer.getEmail() );
         }
         logger.debug( "Saving Customer : {}", customer.toString() );
         CustomerEntity entity = customerMapper.toEntity( customer );
@@ -160,7 +178,13 @@ public class CustomerService
         logger.debug( "Updating Customer : {}", customer.toString() );
         if( Objects.isNull( customer.getCustomerId() ) )
         {
+            logger.error("Customer does not have a customerId");
             throw new CustomerException( "Customer does not have a customerId" );
+        }
+        if(!Tools.validateEmail(customer.getEmail()))
+        {
+            logger.error("email is not valid : "+customer.getEmail());
+            throw new CustomerException( "email is not valid : "+customer.getEmail() );
         }
         CustomerEntity entity = customerRepository.findByIdOptional( customer.getCustomerId() )
                 .orElseThrow( () -> new CustomerException( "No Customer found for customerId[%s]", customer.getCustomerId() ) );
