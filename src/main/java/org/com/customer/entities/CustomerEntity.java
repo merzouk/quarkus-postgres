@@ -27,6 +27,7 @@ import lombok.Data;
 @Data
 public class CustomerEntity implements Serializable
 {
+   @java.io.Serial
    private static final long serialVersionUID = -2743626572947459832L;
 
    @Id

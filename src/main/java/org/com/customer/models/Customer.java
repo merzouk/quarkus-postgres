@@ -20,7 +20,7 @@ import javax.validation.constraints.NotEmpty;
 @Data
 public class Customer implements Serializable
 {
-   
+   @java.io.Serial
    private static final long serialVersionUID = 6490814933221125505L;
 
    //@NotEmpty
