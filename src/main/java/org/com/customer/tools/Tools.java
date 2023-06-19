@@ -3,13 +3,13 @@ package org.com.customer.tools;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public final class Tools {
+public final class Tools
+{
+    private static final Pattern VALID_EMAIL_ADDRESS_REGEX =
+            Pattern.compile("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$", Pattern.CASE_INSENSITIVE);
 
-    private static final String regex = "^[a-zA-Z0-9_!#$%&amp;'*+/=?`{|}~^.-]+@[a-zA-Z0-9.-]+$";
-
-    public static final boolean validateEmail(String emailValue){
-        Pattern pattern = Pattern.compile(regex);
-        Matcher matcher = pattern.matcher(emailValue);
-        return matcher.matches();
+    public static boolean validateEmail(String emailValue)
+    {
+        return VALID_EMAIL_ADDRESS_REGEX.matcher(emailValue).matches();
     }
 }
