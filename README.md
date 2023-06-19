@@ -11,6 +11,13 @@ You can run your application in dev mode that enables live coding using:
 ./mvnw compile quarkus:dev
 ```
 
+Other method :
+```shell script
+mvn clean install
+
+java -jar target\quarkus-mysql-0.0.1-runner.jar
+```
+
 > **_NOTE:_**  Quarkus now ships with a Dev UI, which is available in dev mode only at http://localhost:8585/q/dev/.
 
 ## Packaging and running the application
