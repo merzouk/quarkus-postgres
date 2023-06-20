@@ -165,6 +165,26 @@ public class CustomerService
             logger.error("email is not valid : "+customer.getEmail());
             throw new CustomerException( "email is not valid : "+customer.getEmail() );
         }
+        if( Objects.isNull( customer.getFirstName() ) )
+        {
+            logger.error("Saving new Customer not valid for firstname "+customer.getFirstName());
+            throw new CustomerException( "Saving new Customer not valid for firstname "+customer.getFirstName() );
+        }
+        if( Objects.isNull( customer.getLastName() ) )
+        {
+            logger.error("Saving new Customer not valid for lastname "+customer.getLastName());
+            throw new CustomerException( "Saving new Customer not valid for lastname "+customer.getLastName() );
+        }
+        if( Objects.isNull( customer.getPhone() ) )
+        {
+            logger.error("Saving new Customer not valid for Phone "+customer.getPhone());
+            throw new CustomerException( "Saving new Customer not valid for Phone "+customer.getPhone() );
+        }
+        if( Tools.isNumeric(customer.getPhone() ) )
+        {
+            logger.error("Saving new Customer not valid for Phone "+customer.getPhone() +" Phone is not numeric value");
+            throw new CustomerException( "Saving new Customer not valid for Phone "+customer.getPhone() +" Phone is not numeric value");
+        }
         logger.debug( "Saving Customer : {}", customer.toString() );
         CustomerEntity entity = customerMapper.toEntity( customer );
         entity.setCustomerId(getMaxCustomerId() + 1);

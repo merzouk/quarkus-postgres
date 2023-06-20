@@ -34,7 +34,7 @@ import lombok.extern.slf4j.Slf4j;
 
 /**
  * 
- * A Renseigner.
+ * A Energiser.
  * @author  : admin
  * @project : customer-api-0.0.1
  * @package : org.com.customer.web
@@ -213,7 +213,7 @@ public class CustomerResource
     /**
      * 
      * @param email : email of customer
-     * @return Respoonse
+     * @return Response
      */
     @GET
     @Path("/email/{email}")
