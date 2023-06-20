@@ -15,13 +15,17 @@ public final class Tools
         return VALID_EMAIL_ADDRESS_REGEX.matcher(emailValue).matches();
     }
 
-    private static final Pattern pattern = Pattern.compile("-?\\d+(\\.\\d+)?");
+    //private static final Pattern pattern = Pattern.compile("-?\\d+(\\.\\d+)?");
 
-    public static boolean isNumeric(String strNum)
+    public static boolean isNumeric(String phoneStr)
     {
-        if (strNum == null) {
+        if (phoneStr == null) {
             return false;
         }
-        return pattern.matcher(strNum).matches();
+        for(int i = 0 ; i < phoneStr.toCharArray().length ; i++)
+        {
+            if(!Character.isDigit(phoneStr.charAt(i))) return false;
+        }
+        return true;
     }
 }
