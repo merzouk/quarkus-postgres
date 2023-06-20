@@ -182,8 +182,8 @@ public class CustomerService
         }
         if( !Tools.isNumeric(customer.getPhone() ) )
         {
-            logger.error("Saving new Customer not valid for Phone "+customer.getPhone() +" Phone is not numeric value");
-            throw new CustomerException( "Saving new Customer not valid for Phone "+customer.getPhone() +" Phone is not numeric value");
+            logger.error("Saving new Customer not valid for Phone \""+customer.getPhone() +"\" Phone is not numeric value");
+            throw new CustomerException( "Saving new Customer not valid for Phone \""+customer.getPhone() +"\" Phone is not numeric value");
         }
         logger.debug( "Saving Customer : {}", customer.toString() );
         CustomerEntity entity = customerMapper.toEntity( customer );
