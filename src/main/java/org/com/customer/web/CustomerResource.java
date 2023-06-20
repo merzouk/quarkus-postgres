@@ -319,6 +319,10 @@ public class CustomerResource
         {
             throw new CustomerException("Path variable customerId does not match Customer.customerId "+customerId);
         }
+        if(Objects.isNull(customer.getCustomerId()))
+        {
+            throw new CustomerException("customerId does not valid "+customer.getCustomerId());
+        }
         customerService.update(customer);
         return Response.status(Response.Status.NO_CONTENT)
                        .build();
