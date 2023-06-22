@@ -58,7 +58,7 @@ public class CustomerService
      */
     public Optional<Customer> findById( @NonNull Integer customerId )
     {
-        if( Objects.isNull( customerId ) )
+        if( Objects.isNull( customerId ) || customerId <= 0)
         {
             logger.error("Find Customer by customerId not valid : "+customerId);
             throw new CustomerException( "Find Customer by customerId not valid : "+customerId );
@@ -74,7 +74,7 @@ public class CustomerService
     @Transactional(rollbackOn = Exception.class)
     public boolean deleteById( @NonNull Integer customerId )
     {
-        if( Objects.isNull( customerId ) )
+        if( Objects.isNull( customerId ) || customerId <= 0)
         {
             logger.error("Delete Customer by customerId not valid : "+customerId);
             throw new CustomerException( "Delete Customer by customerId not valid : "+customerId );
@@ -89,7 +89,7 @@ public class CustomerService
      */
     public List<Customer> findByFirstName( @NonNull String firstname )
     {
-        if( Objects.isNull( firstname ) )
+        if( Objects.isNull( firstname ) || firstname.length() == 0 )
         {
             logger.error("Find Customer List by firstname not valid : "+firstname);
             throw new CustomerException( "Find Customer List by firstname not valid : "+firstname );
@@ -105,7 +105,7 @@ public class CustomerService
      */
     public List<Customer> findByFirstNameAndLastName( @NonNull String firstname , @NonNull String lastname)
     {
-        if( Objects.isNull( firstname ) || Objects.isNull( lastname ))
+        if( Objects.isNull( firstname ) || Objects.isNull( lastname ) || firstname.length() == 0 || lastname.length() == 0)
         {
             logger.error("Find Customer List by firstname: "+firstname +"  And lastname: "+lastname+" not valid");
             throw new CustomerException( "Find Customer List by firstname: "+firstname +"  And lastname: "+lastname+" not valid");
@@ -124,7 +124,7 @@ public class CustomerService
      */
     public List<Customer> findByLastName( @NonNull String lastname )
     {
-        if( Objects.isNull( lastname ) )
+        if( Objects.isNull( lastname ) || lastname.length() == 0 )
         {
             logger.error("Find Customer List by lastname not valid : "+lastname);
             throw new CustomerException( "Find Customer List by lastname not valid : "+lastname );
