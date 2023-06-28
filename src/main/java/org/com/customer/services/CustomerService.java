@@ -58,7 +58,8 @@ public class CustomerService {
      */
     public Optional<Customer> findById(@NonNull Integer customerId)
     {
-        if (Objects.isNull(customerId) || customerId <= 0) {
+        if (Objects.isNull(customerId) || customerId <= 0) 
+        {
             logger.error("Find Customer by customerId not valid : " + customerId);
             throw new CustomerException("Find Customer by customerId not valid : " + customerId);
         }
