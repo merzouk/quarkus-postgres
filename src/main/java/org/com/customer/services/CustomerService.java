@@ -47,7 +47,8 @@ public class CustomerService {
      *
      * @return
      */
-    public List<Customer> findAll() {
+    public List<Customer> findAll() 
+    {
         return this.customerMapper.toListModel(customerRepository.findAll().list());
     }
 
