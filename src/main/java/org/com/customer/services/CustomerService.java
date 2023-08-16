@@ -222,8 +222,8 @@ public class CustomerService {
     private Integer getMaxCustomerId()
     {
         Integer id = Panache.getEntityManager()
-                .createQuery("SELECT max(c.customerId) FROM Customer c", Integer.class)
-                .getSingleResult();
+                            .createQuery("SELECT max(c.customerId) FROM Customer c", Integer.class)
+                            .getSingleResult();
         if(null != id) return id;
         return 0;
     }
